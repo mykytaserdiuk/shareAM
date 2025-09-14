@@ -1,0 +1,8 @@
+db:
+  host: "file-storage-postgres"
+  port: "5432"
+  username: "dev"
+  password: "12345"
+  dbName: "file-storage"
+  sslmode: "disable"
+  isolationLevel: "ReadCommitted"

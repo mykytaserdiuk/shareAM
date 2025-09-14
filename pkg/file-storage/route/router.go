@@ -2,8 +2,8 @@ package route
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/mykytaserdiuk/shaream/pkg/inventory/handler"
-	"github.com/mykytaserdiuk/shaream/pkg/inventory/service"
+	"github.com/mykytaserdiuk/shaream/pkg/file-storage/handler"
+	"github.com/mykytaserdiuk/shaream/pkg/file-storage/service"
 )
 
 func NewRouter(services *service.Services) *mux.Router {

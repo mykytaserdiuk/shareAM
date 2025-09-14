@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/mykytaserdiuk/shaream/pkg/inventory/service"
+	"github.com/mykytaserdiuk/shaream/pkg/file-storage/service"
 	"net/http"
 )
 
