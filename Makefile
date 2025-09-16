@@ -3,6 +3,7 @@ DIR=${CURDIR}
 up:
 	docker compose up -d minio
 	$(MAKE) service-up SERVICE=file-storage
+	$(MAKE) service-up SERVICE=user-management
 
 service-up:
 	docker compose up -d ${SERVICE}-postgres
@@ -12,6 +13,12 @@ service-up:
 
 service-rebuild:
 	docker compose build ${SERVICE}
+
+down:
+	docker compose down
+
+down-v:
+	docker compose down -v
 
 .PHONY:migrations-up
 migrations-up:

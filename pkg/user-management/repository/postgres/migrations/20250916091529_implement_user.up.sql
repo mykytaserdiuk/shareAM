@@ -1,0 +1,10 @@
+CREATE TABLE users(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    email VARCHAR NOT NULL
+);
+
+CREATE TABLE credentials (
+  name VARCHAR NOT NULL REFERENCES users,
+  hash BYTEA NOT NULL
+);
+

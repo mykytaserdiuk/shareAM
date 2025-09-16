@@ -48,5 +48,5 @@ func (s *FileService) Upload(ctx context.Context, token *string, file multipart.
 		return "", err
 	}
 
-	return fileModel.ID, nil
+	return fileModel.URL, nil
 }

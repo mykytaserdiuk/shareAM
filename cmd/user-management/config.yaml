@@ -1,0 +1,10 @@
+db:
+  host: "user-management-postgres"
+  port: "5432"
+  username: "dev"
+  password: "123456"
+  dbName: "user-management"
+  sslmode: "disable"
+  isolationLevel: "ReadCommitted"
+
+port: ":8080"

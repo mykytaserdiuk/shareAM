@@ -36,5 +36,28 @@ services:
     volumes:
       - ./cmd/file-storage/config.yaml:/configs/config.yaml:ro
 
+  user-management-postgres:
+    container_name: user-management-postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: user-management
+    ports:
+      - "5333:5432"
+
+  user-management:
+    container_name: user-management
+    build:
+      context: .
+      dockerfile: ./cmd/user-management/Dockerfile
+    restart: always
+    ports:
+      - 8081:8080
+    depends_on:
+      - user-management-postgres
+    volumes:
+      - ./cmd/user-management/config.yaml:/configs/config.yaml:ro
+
 volumes:
   minio_data:
