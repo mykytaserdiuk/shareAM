@@ -15,7 +15,7 @@ type Config struct {
 	IsolationLevel string `yaml:"isolationLevel"`
 }
 
-// URL returns a postgress connection URL
+// URL returns a postgres connection URL
 func (c *Config) URL() string {
 	return fmt.Sprintf(
 		"postgres://%s:%s@%s/%s?sslmode=%s",

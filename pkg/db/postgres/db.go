@@ -3,7 +3,10 @@ package postgres
 import (
 	"context"
 	"database/sql"
+
 	"github.com/jmoiron/sqlx"
+
+	_ "github.com/lib/pq"
 )
 
 type DB struct {

@@ -12,4 +12,5 @@ type RepoManager interface {
 
 type FileRepo interface {
 	InsertFiles(ctx context.Context, files []*models.File) error
+	GetFileByID(ctx context.Context, id string) (*models.File, error)
 }
