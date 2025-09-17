@@ -25,7 +25,9 @@ func (r *UserRepository) CreateUser(ctx context.Context, user *models.User) erro
 		Values(
 			user.ID,
 			user.Email,
-		).ToSql()
+		).
+		PlaceholderFormat(sq.Dollar).
+		ToSql()
 	if err != nil {
 		return err
 	}

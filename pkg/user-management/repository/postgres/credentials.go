@@ -27,6 +27,7 @@ func (r *CredentialsRepo) InsertCredentials(ctx context.Context, creds *models.C
 			creds.Name,
 			creds.Hash,
 		).
+		PlaceholderFormat(sq.Dollar).
 		ToSql()
 	if err != nil {
 		return err

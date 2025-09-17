@@ -7,9 +7,9 @@ import (
 )
 
 func NewRouter(services *service.Services) *mux.Router {
-	router := mux.NewRouter().PathPrefix("/v1/api").Subrouter()
+	router := mux.NewRouter().PathPrefix("/api/v1").Subrouter()
 
-	router.HandleFunc("/user", handler.NewCreateUserHandler(services.UserSvc)).
+	router.HandleFunc("/users", handler.NewCreateUserHandler(services.UserSvc)).
 		Methods("POST")
 
 	return router

@@ -28,22 +28,21 @@ func (s *UserService) CreateUser(ctx context.Context, creds *models.Credentials)
 	defer tx.Rollback()
 
 	id := uuid.New().String()
-	creds.Name = id
-	hash := sha256.New()
-	hash.Write([]byte(creds.Password))
-
-	creds.Hash = hex.EncodeToString(hash.Sum(nil))
-	err = s.repoManager.NewCredentialsRepo(tx).InsertCredentials(ctx, creds)
-	if err != nil {
-		return nil, err
-	}
-
 	user := &models.User{
 		ID:    id,
 		Email: nil,
 	}
 
 	err = s.repoManager.NewUserRepo(tx).CreateUser(ctx, user)
+	if err != nil {
+		return nil, err
+	}
+	creds.Name = id
+	hash := sha256.New()
+	hash.Write([]byte(creds.Password))
+
+	creds.Hash = hex.EncodeToString(hash.Sum(nil))
+	err = s.repoManager.NewCredentialsRepo(tx).InsertCredentials(ctx, creds)
 	if err != nil {
 		return nil, err
 	}
